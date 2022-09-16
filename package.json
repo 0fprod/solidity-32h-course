@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/franjpr/solidity-32h-course/issues"
   },
-  "homepage": "https://github.com/franjpr/solidity-32h-course#readme"
+  "homepage": "https://github.com/franjpr/solidity-32h-course#readme",
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.1"
+  }
 }
