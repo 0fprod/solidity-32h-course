@@ -6,7 +6,7 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 /**
   FundMe contract:
-   - Get funds from users
+   - Get funds from users   
    - Withdraw funds to contract owner
    - Set a minimum funding value in USD
  */
