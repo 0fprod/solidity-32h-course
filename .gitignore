@@ -1,2 +1,5 @@
 node_modules
 introduction/node_modules
+ethers-simple-storage/node_modules
+ethers-simple-storage/dist
+ethers-simple-storage/.env
