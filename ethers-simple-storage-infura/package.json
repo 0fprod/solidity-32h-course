@@ -1,0 +1,29 @@
+{
+  "name": "ethers-simple-storage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx solc --bin --include-path node_modules/ --base-path . -o ./bin SimpleStorage.sol && npx solc --abi --include-path node_modules/ --base-path . -o ./abi SimpleStorage.sol",
+    "deploy": "ts-node deploy.ts",
+    "compile:type": "typechain --target ethers-v5 \"./abi/**.abi\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typechain/ethers-v5": "^10.1.0",
+    "@types/fs-extra": "^9.0.13",
+    "dotenv": "^16.0.2",
+    "fs-extra": "^10.1.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.24",
+    "solc": "^0.8.17",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.0",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "ethers": "^5.7.1"
+  }
+}
