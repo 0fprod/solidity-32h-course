@@ -1,7 +1,9 @@
 node_modules
 introduction/node_modules
 ethers-simple-storage/node_modules
+hardhat-simple-storage/node_modules
 ethers-simple-storage/dist
 ethers-simple-storage/.env
 ethers-simple-storage-infura/.env
 ethers-simple-storage-infura/types
+hardhat-simple-storage/.env
