@@ -2,7 +2,7 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/fran/Workspace/solidity-32h-course/hardhat-simple-storage/contracts/SimpleStorage.sol": {
-      "lastModificationDate": 1664229071071,
+      "lastModificationDate": 1664229162729,
       "contentHash": "58a7fd764ea7fb50190e5e09b74153fa",
       "sourceName": "contracts/SimpleStorage.sol",
       "solcConfig": {
@@ -25,6 +25,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },

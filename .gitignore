@@ -7,3 +7,5 @@ ethers-simple-storage/.env
 ethers-simple-storage-infura/.env
 ethers-simple-storage-infura/types
 hardhat-simple-storage/.env
+hardhat-simple-storage/coverage
+hardhat-simple-storage/coverage.json
