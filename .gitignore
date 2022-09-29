@@ -9,3 +9,7 @@ ethers-simple-storage-infura/types
 hardhat-simple-storage/.env
 hardhat-simple-storage/coverage
 hardhat-simple-storage/coverage.json
+hardat-simple-storage-ts/.env
+hardat-simple-storage-ts/coverage
+hardat-simple-storage-ts/coverage.json
+hardat-simple-storage-ts/typechain-types
