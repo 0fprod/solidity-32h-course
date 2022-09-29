@@ -2,9 +2,12 @@ require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 require("@nomiclabs/hardhat-etherscan");
 require("./tasks/block-number");
+require("hardhat-gas-reporter");
+
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
+const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -24,5 +27,11 @@ module.exports = {
     apiKey: {
       goerli: ETHERSCAN_API_KEY,
     },
+  },
+  gasReporter: {
+    enabled: true,
+    currency: "EUR",
+    coinmarketcap: COINMARKETCAP_API_KEY,
+    // token: "MATIC", // Default is ETH, here you can see how much it will cost in other blockchains
   },
 };
