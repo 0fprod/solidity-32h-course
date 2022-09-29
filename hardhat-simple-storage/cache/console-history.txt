@@ -1,0 +1,11 @@
+n.then(x => console.log(x.toString()))
+n.then(console.log)
+n.toString()
+n
+const n = simpleStorage.retrieve()
+simpleStorage.store("293")
+simpleStorage.address
+ const simpleStorage = await SimpleStorage.deploy();
+const SimpleStorage = await ethers.getContractFactory("SimpleStorage");
+.exit
+.help
