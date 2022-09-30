@@ -3,3 +3,5 @@ node_modules
 typechain-types
 coverage
 coverage.json
+cache
+artifacts
