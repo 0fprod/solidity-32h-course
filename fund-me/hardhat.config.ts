@@ -14,7 +14,10 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || '';
 const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || '';
 
 const config: HardhatUserConfig = {
-  solidity: '0.8.8',
+  // solidity: '0.8.8',
+  solidity: {
+    compilers: [{ version: '0.8.8' }, { version: '0.8.0' }], // different compilers for diff contracts
+  },
   networks: {
     goerli: {
       url: GOERLI_RPC_URL,
