@@ -18,7 +18,7 @@ describe('FundMe specs', async () => {
   });
 
   it('sets the aggregator addresses correctly', async () => {
-    const response = await fundMe.s_priceFeed();
+    const response = await fundMe.getPriceFeed();
     assert.equal(response, mockV3Aggerator.address);
   });
 
@@ -32,7 +32,7 @@ describe('FundMe specs', async () => {
     await fundMe.fund({
       value: ethers.utils.parseEther('0.5'),
     });
-    const response = await fundMe.s_funderAddressToAmount(deployer);
+    const response = await fundMe.getFunderAddressToAmount(deployer);
     assert.equal(
       response.toString(),
       ethers.utils.parseEther('0.5').toString()
@@ -43,8 +43,8 @@ describe('FundMe specs', async () => {
     await fundMe.fund({
       value: ethers.utils.parseEther('0.5'),
     });
-    await fundMe.s_funderAddressToAmount(deployer);
-    const funder = await fundMe.s_funders(0);
+    await fundMe.getFunderAddressToAmount(deployer);
+    const funder = await fundMe.getFunders(0);
     assert.equal(funder, deployer);
   });
 
@@ -112,11 +112,11 @@ describe('FundMe specs', async () => {
     );
 
     // ¿?
-    await expect(fundMe.s_funders(0)).to.be.reverted;
+    await expect(fundMe.getFunders(0)).to.be.reverted;
 
     for (let i = 1; i < 6; i++) {
       assert.equal(
-        (await fundMe.s_funderAddressToAmount(accounts[i].address)).toString(),
+        (await fundMe.getFunderAddressToAmount(accounts[i].address)).toString(),
         '0'
       );
     }
@@ -147,11 +147,11 @@ describe('FundMe specs', async () => {
     );
 
     // ¿?
-    await expect(fundMe.s_funders(0)).to.be.reverted;
+    await expect(fundMe.getFunders(0)).to.be.reverted;
 
     for (let i = 1; i < 6; i++) {
       assert.equal(
-        (await fundMe.s_funderAddressToAmount(accounts[i].address)).toString(),
+        (await fundMe.getFunderAddressToAmount(accounts[i].address)).toString(),
         '0'
       );
     }
