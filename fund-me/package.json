@@ -8,7 +8,9 @@
     "test:coverage": "hardhat coverage",
     "compile": "hardhat compile",
     "deploy": "hardhat deploy",
-    "deploy:goerli": "hardhat deploy --network goerli"
+    "deploy:goerli": "hardhat deploy --network goerli",
+    "deploy:localhost": "hardhat deploy --network localhost --tags all",
+    "deploy:storage": "hardhat deploy --tags storage"
   },
   "keywords": [],
   "author": "",
