@@ -15,19 +15,20 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const chainId = network.config.chainId ?? HARDHAT_CHAIN_ID;
   log('Deploying contract to chanId: ', chainId, '');
   let priceFeedAggregatorAddress;
-
+  let waitConfirmations = 0;
   if (developmentNetworkNames.includes(network.name)) {
     const priceFeedAggregator = await get('MockV3Aggregator');
     priceFeedAggregatorAddress = priceFeedAggregator.address;
   } else {
     priceFeedAggregatorAddress = networkConfig[chainId].ethUsdPriceFeed;
+    waitConfirmations = 6;
   }
 
   const contract = await deploy('FundMe', {
     from: deployer,
     args: [priceFeedAggregatorAddress],
     log: true,
-    waitConfirmations: 6,
+    waitConfirmations,
   });
 
   log('FundMe deployed!');
