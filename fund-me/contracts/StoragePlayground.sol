@@ -16,21 +16,23 @@ contract FunWithStorage {
     k: The key in hex
     h: Some function based on the type. For uint256, it just pads the hex
     */
+  uint256 anotherNumber;
   uint256 constant NOT_IN_STORAGE = 123;
   uint256 immutable i_not_in_storage;
 
   constructor() {
     favoriteNumber = 25; // See stored spot above // SSTORE
-    // someBool = true; // See stored spot above // SSTORE
+    someBool = true; // See stored spot above // SSTORE
     // someBoal = true; // See stored spot above // SSTORE
-    // myArray.push(25); // SSTORE
-    // myArray.push(26); // SSTORE
-    // myArray.push(27); // SSTORE
+    myArray.push(25); // SSTORE
+    myArray.push(26); // SSTORE
+    myArray.push(27); // SSTORE
     myMap[0] = true; // SSTORE
-    myMap[20] = true; // SSTORE
+    myMap[20] = false; // SSTORE
     myMap[25] = true; // SSTORE
     i_not_in_storage = 888;
     // someNumber = 15;
+    anotherNumber = 732;
   }
 
   function doStuff() public {

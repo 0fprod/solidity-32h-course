@@ -1,10 +1,13 @@
-import { deployments, ethers, getNamedAccounts } from 'hardhat';
-import { FundMe, MockV3Aggregator } from '../../typechain-types';
+import { deployments, ethers, getNamedAccounts, network } from 'hardhat';
+import { FundMe } from '../../typechain-types';
 import { assert, expect } from 'chai';
+import { networkConfig } from '../../helper-hardhat-config';
+
 describe('FundMe specs', async () => {
   let fundMe: FundMe;
   let deployer: string;
-  let mockV3Aggerator: MockV3Aggregator;
+
+  if (network.config.chainId == )
 
   beforeEach(async () => {
     // const accounts = await ethers.getSigners() // returns things defined in accounts in the hardhatconfig
@@ -14,12 +17,11 @@ describe('FundMe specs', async () => {
     await deployments.fixture(['all']);
 
     fundMe = await ethers.getContract('FundMe', deployer); // Most recently deployed contract
-    mockV3Aggerator = await ethers.getContract('MockV3Aggregator', deployer);
   });
 
   it('sets the aggregator addresses correctly', async () => {
     const response = await fundMe.getPriceFeed();
-    assert.equal(response, mockV3Aggerator.address);
+    // assert.equal(response, mockV3Aggerator.address);
   });
 
   it('reverts the tx when the sender sends less thant 50$ in ETH', async () => {
@@ -67,6 +69,7 @@ describe('FundMe specs', async () => {
       finalDeployerBalance.add(gasFee).toString()
     );
   });
+
   it('allows the owner to cheapwithdraw funds', async () => {
     // Arrange
     const contractBalance = await fundMe.provider.getBalance(fundMe.address);
@@ -157,3 +160,5 @@ describe('FundMe specs', async () => {
     }
   });
 });
+
+// https://www.youtube.com/watch?v=gyMwXuJrbJQ 12:14

@@ -27,18 +27,24 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   }
 
   //  You can use this to trace!
-  const trace = await network.provider.send('debug_traceTransaction', [
-    funWithStorage.transactionHash,
-  ]);
-  for (let structLog in trace.structLogs) {
-    if (trace.structLogs[structLog].op == 'SSTORE') {
-      console.log(trace.structLogs[structLog]);
-    }
-  }
+  // const trace = await network.provider.send('debug_traceTransaction', [
+  //   funWithStorage.transactionHash,
+  // ]);
+  // for (let structLog in trace.structLogs) {
+  //   if (trace.structLogs[structLog].op == 'SSTORE') {
+  //     console.log(trace.structLogs[structLog]);
+  //   }
+  // }
 
   // Can you write a function that finds the storage slot of the arrays and mappings?
   // And then find the data in those slots?
-  // await printArrayValues(funWithStorage.address);
+  console.log('############');
+  console.log('### Printing all values in the dynamic array');
+  console.log('############');
+  await printArrayValues(funWithStorage.address);
+  console.log('############');
+  console.log('### Printing all values in the mapping');
+  console.log('############');
   await printMappingValues(funWithStorage.address);
 };
 
@@ -90,25 +96,22 @@ const printArrayValues = async (contractAddress: string): Promise<void> => {
 };
 
 const printMappingValues = async (contractAddres: string): Promise<void> => {
-  // elements are stored at hask(keyinHex, mappingLocation)
-  // keys = 0, 20 & 25
-  console.log('hexlify', ethers.utils.hexlify(0));
-  console.log('hexlify', ethers.utils.hexlify(20));
-  console.log('hexlify', ethers.utils.hexlify(25));
-  // const hex25 = ethers.utils.hexlify(25); // 0x19
-  const mappingLocation = ethers.utils.hexZeroPad('0x193', 32);
-  console.log('🚀 ~ mappingLocation', mappingLocation);
-  // const firstHexKey = ethers.utils.hexZeroPad('0x143', 32);
-  const hashedLocation = ethers.utils.keccak256(mappingLocation);
-  console.log('🚀 ~ hashedLocation', hashedLocation);
-  const hexValueAt = await ethers.provider.getStorageAt(
-    contractAddres,
-    hashedLocation
-  );
-  console.log('🚀 ~ hexValueAt', hexValueAt);
-  console.log(
-    `value in decimal = ${ethers.BigNumber.from(hexValueAt).toNumber()}`
-  );
+  const mappingKeys = [0, 20, 25];
+  const mappingSlot = ethers.utils.hexZeroPad('0x3', 32);
+
+  for (let i = 0; i < mappingKeys.length; i++) {
+    const keyAsHex = ethers.BigNumber.from(mappingKeys[i]).toHexString();
+    const keyPad = ethers.utils.hexZeroPad(keyAsHex, 32);
+    const concatenationOf = ethers.utils.concat([keyPad, mappingSlot]);
+    const concatenationHash = ethers.utils.keccak256(concatenationOf);
+    console.log('🚀 ~ concatenationHash', concatenationHash);
+    const value = await ethers.provider.getStorageAt(
+      contractAddres,
+      concatenationHash
+    );
+    console.log('🚀 ~ value', value);
+  }
+  ethers.BigNumber.from(25).toHexString;
 };
 
 export default func;
