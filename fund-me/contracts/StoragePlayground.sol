@@ -1,9 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
+//https://docs.soliditylang.org/en/develop/internals/layout_in_storage.html
+
 contract FunWithStorage {
   uint256 favoriteNumber; // Stored at slot 0
   bool someBool; // Stored at slot 1
+  // bool someBoal; // Stored at slot 1
+  // uint256 someNumber;
   uint256[] myArray; /* Array Length Stored at slot 2,
     but the objects will be the keccak256(2), since 2 is the storage slot of the array */
   mapping(uint256 => bool) myMap; /* An empty slot is held at slot 3
@@ -17,12 +21,16 @@ contract FunWithStorage {
 
   constructor() {
     favoriteNumber = 25; // See stored spot above // SSTORE
-    someBool = true; // See stored spot above // SSTORE
-    myArray.push(25); // SSTORE
-    myArray.push(26); // SSTORE
-    myArray.push(27); // SSTORE
+    // someBool = true; // See stored spot above // SSTORE
+    // someBoal = true; // See stored spot above // SSTORE
+    // myArray.push(25); // SSTORE
+    // myArray.push(26); // SSTORE
+    // myArray.push(27); // SSTORE
     myMap[0] = true; // SSTORE
+    myMap[20] = true; // SSTORE
+    myMap[25] = true; // SSTORE
     i_not_in_storage = 888;
+    // someNumber = 15;
   }
 
   function doStuff() public {
