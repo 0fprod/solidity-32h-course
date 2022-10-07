@@ -18,9 +18,11 @@ contract FunWithStorage {
   constructor() {
     favoriteNumber = 25; // See stored spot above // SSTORE
     someBool = true; // See stored spot above // SSTORE
-    myArray.push(222); // SSTORE
+    myArray.push(25); // SSTORE
+    myArray.push(26); // SSTORE
+    myArray.push(27); // SSTORE
     myMap[0] = true; // SSTORE
-    i_not_in_storage = 123;
+    i_not_in_storage = 888;
   }
 
   function doStuff() public {
