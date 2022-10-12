@@ -11,7 +11,9 @@
     "deploy": "hardhat deploy",
     "deploy:goerli": "hardhat deploy --network goerli",
     "deploy:localhost": "hardhat deploy --network localhost --tags all",
-    "deploy:storage": "hardhat deploy --tags storage"
+    "deploy:storage": "hardhat deploy --tags storage",
+    "fund:local": "hardhat run scripts/fund.ts --network localhost",
+    "withdraw:local": "hardhat run scripts/withdraw.ts --network localhost"
   },
   "keywords": [],
   "author": "",

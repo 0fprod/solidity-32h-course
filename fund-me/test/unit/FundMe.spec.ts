@@ -62,7 +62,7 @@ import { developmentNetworkNames } from '../../helper-hardhat-config';
         );
         const deployerBalance = await fundMe.provider.getBalance(deployer);
         // Act
-        const txResponse = await fundMe.widthdraw();
+        const txResponse = await fundMe.withdraw();
         const txReceipt = await txResponse.wait(1);
         const gasFee = txReceipt.gasUsed.mul(txReceipt.effectiveGasPrice);
         const finalContractBalance = await fundMe.provider.getBalance(
@@ -83,7 +83,7 @@ import { developmentNetworkNames } from '../../helper-hardhat-config';
         );
         const deployerBalance = await fundMe.provider.getBalance(deployer);
         // Act
-        const txResponse = await fundMe.cheapWidthdraw();
+        const txResponse = await fundMe.cheapwithdraw();
         const txReceipt = await txResponse.wait(1);
         const gasFee = txReceipt.gasUsed.mul(txReceipt.effectiveGasPrice);
         const finalContractBalance = await fundMe.provider.getBalance(
@@ -110,7 +110,7 @@ import { developmentNetworkNames } from '../../helper-hardhat-config';
           fundMe.address
         );
         const deployerBalance = await fundMe.provider.getBalance(deployer);
-        const txResponse = await fundMe.widthdraw();
+        const txResponse = await fundMe.withdraw();
         const txReceipt = await txResponse.wait(1);
         const gasFee = txReceipt.gasUsed.mul(txReceipt.effectiveGasPrice);
         const finalContractBalance = await fundMe.provider.getBalance(
@@ -149,7 +149,7 @@ import { developmentNetworkNames } from '../../helper-hardhat-config';
           fundMe.address
         );
         const deployerBalance = await fundMe.provider.getBalance(deployer);
-        const txResponse = await fundMe.cheapWidthdraw();
+        const txResponse = await fundMe.cheapwithdraw();
         const txReceipt = await txResponse.wait(1);
         const gasFee = txReceipt.gasUsed.mul(txReceipt.effectiveGasPrice);
         const finalContractBalance = await fundMe.provider.getBalance(

@@ -39,5 +39,5 @@ contract FundMe {
         amountFundedbyAddress[msg.sender] = msg.value;
     }
 
-    // function widthdraw() {}
+    // function withdraw() {}
 }

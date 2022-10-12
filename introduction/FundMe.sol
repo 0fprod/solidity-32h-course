@@ -63,5 +63,5 @@ contract FundMe {
         uint256 ethAmoutInUsd = (ethPriceInUsd * ethAmount) / 1e18;
         return ethAmoutInUsd;
     }
-    // function widthdraw() {}
+    // function withdraw() {}
 }

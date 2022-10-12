@@ -46,7 +46,7 @@ contract FundMe {
     s_funderAddressToAmount[msg.sender] += msg.value;
   }
 
-  function cheapWidthdraw() public payable onlyOwner {
+  function cheapwithdraw() public payable onlyOwner {
     address[] memory funders = s_funders;
     for (uint256 index = 0; index < funders.length; index++) {
       s_funderAddressToAmount[funders[index]] = 0;
@@ -56,7 +56,7 @@ contract FundMe {
     require(success, 'Send failed');
   }
 
-  function widthdraw() public payable onlyOwner {
+  function withdraw() public payable onlyOwner {
     for (uint256 index = 0; index < s_funders.length; index++) {
       address funderAddress = s_funders[index];
       s_funderAddressToAmount[funderAddress] = 0;

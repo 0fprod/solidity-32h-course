@@ -53,7 +53,7 @@ contract FundMePlusLibraryV2 {
         amountFundedbyAddress[msg.sender] += msg.value;
     }
 
-    function widthdraw() public onlyOwner {
+    function withdraw() public onlyOwner {
         for (uint256 index = 0; index < funderAddresses.length; index++) {
             address funderAddress = funderAddresses[index];
             amountFundedbyAddress[funderAddress] = 0;

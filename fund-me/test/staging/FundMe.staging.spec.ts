@@ -16,7 +16,7 @@ developmentNetworkNames.includes(network.name)
       });
       it('allows people to fund and withdraw', async () => {
         await fundMe.fund({ value: ethers.utils.parseEther('0.04') });
-        await fundMe.widthdraw();
+        await fundMe.withdraw();
         const endingBalance = await fundMe.provider.getBalance(fundMe.address);
         console.log('🚀 ~ endingBalance', endingBalance);
 
