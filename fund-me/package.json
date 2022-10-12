@@ -6,6 +6,7 @@
   "scripts": {
     "test": "hardhat test",
     "test:coverage": "hardhat coverage",
+    "test:staging": "hardhat test --network goerli",
     "compile": "hardhat compile",
     "deploy": "hardhat deploy",
     "deploy:goerli": "hardhat deploy --network goerli",
