@@ -6,3 +6,5 @@ coverage.json
 cache
 artifacts
 deployments
+dist
+.parcel-cache
