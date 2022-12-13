@@ -17,6 +17,7 @@ const deploy = async ({ deployments, getNamedAccounts }: HardhatRuntimeEnvironme
   let VRFCoordinatorV2Address
   let subId
   let waitConfirmations = 1
+  console.log("ChaindId", chainId)
 
   if (isDevelopmentChain(chainId)) {
     console.log("------------------------------")
